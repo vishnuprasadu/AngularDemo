@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+  </head>
+  <body>
+    <div class="card p-0">
+      <div
+        class="card-header p-0 row"
+        style="background-color: aliceblue; height: 50px"
+      >
+        <h2 class="col-11" align="left" style="font-family: cursive">
+          Employee Login Form
+        </h2>
+        <div class="my-2 mx-0 col-1">
+          <button
+            type="button"
+            class="btn btn-outline-info btn-sm w-auto"
+            routerLink="/index"
+          >
+            <i class="fa fa-home"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="container h-100">
+          <div class="row align-items-center h-100">
+            <div class="col-6">
+              <img src="assets/images/login3.svg" height="100%" width="100%" />
+            </div>
+            <div class="col-6 mx-auto">
+              <div class="jumbotron">
+                <form
+                  [formGroup]="customer"
+                  (ngSubmit)="ShowValue(customer.value)"
+                >
+                  <div>
+                    <div class="row form-group col-lg-12">
+                      <div class="col-4">
+                        <label>Employee name:</label>
+                      </div>
+                      <div class="col-8">
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="name"
+                        />
+                      </div>
+
+                      <div
+                        class="alert-danger"
+                        *ngIf="
+                          customer.get('name').invalid &&
+                          customer.get('name').touched
+                        "
+                      >
+                        <div
+                          class="alert-danger"
+                          *ngIf="customer.get('name').hasError('required')"
+                        >
+                          This field is required..
+                        </div>
+                        <div
+                          class="alert-danger"
+                          *ngIf="customer.get('name').hasError('pattern')"
+                        >
+                          Name pattern is not correct.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row form-group col-lg-12">
+                      <div class="col-4">
+                        <label>Employee PIN:</label>
+                      </div>
+                      <div class="col-8">
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="password"
+                        />
+                      </div>
+
+                      <div
+                        class="alert-danger"
+                        *ngIf="
+                          customer.get('password').invalid &&
+                          customer.get('password').touched
+                        "
+                      >
+                        <div
+                          class="alert-danger"
+                          *ngIf="customer.get('password').hasError('required')"
+                        >
+                          This field is required..
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="float-right">
+                    <button
+                      type="submit"
+                      class="btn btn-success w-auto mx-2"
+                      [disabled]="customer.invalid"
+                    >
+                      Login
+                    </button>
+                    <button
+                      class="btn btn-primary w-auto mx-2"
+                      routerLink="/index"
+                    >
+                      Home
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

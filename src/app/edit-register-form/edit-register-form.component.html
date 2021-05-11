@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Register Form</title>
+  </head>
+  <body>
+    <div class="card p-0">
+      <div
+        class="card-header p-0 row"
+        style="background-color: aliceblue; height: 50px"
+      >
+        <h2 class="col-11" align="left" style="font-family: cursive">
+          Customer Registeration Form - Edit
+        </h2>
+        <div class="my-2 mx-0 col-1">
+          <button
+            type="button"
+            class="btn btn-outline-info btn-sm w-auto"
+            routerLink="/index"
+          >
+            <i class="fa fa-home"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0 my-2">
+        <div>
+          <form [formGroup]="customer" (ngSubmit)="ShowValue(customer.value)">
+            <div class="row mx-0">
+              <div class="form-group col-lg-6">
+                <label>Enter customer Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  [ngModel]="customerEdit?.name"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('name').invalid && customer.get('name').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('name').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('name').hasError('pattern')"
+                  >
+                    Name Only Charaters.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Enter Customer Email:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="email"
+                  [ngModel]="customerEdit?.email"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('email').invalid &&
+                    customer.get('email').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('email').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('email').hasError('pattern')"
+                  >
+                    Email Only Charaters.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Enter Customer Mobile:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="mobile"
+                  [ngModel]="customerEdit?.mobile"
+                  readonly
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('mobile').invalid &&
+                    customer.get('mobile').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('mobile').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('mobile').hasError('pattern')"
+                  >
+                    Mobile Only Numbers.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Enter Customer PIN:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="password"
+                  [ngModel]="customerEdit?.password"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('password').invalid &&
+                    customer.get('password').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('password').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Enter State:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="state"
+                  [ngModel]="customerEdit?.state"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('state').invalid &&
+                    customer.get('state').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('state').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Enter City:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="city"
+                  [ngModel]="customerEdit?.city"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('city').invalid && customer.get('city').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('city').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Enter PinCode:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="pin"
+                  [ngModel]="customerEdit?.pin"
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('pin').invalid && customer.get('pin').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('pin').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Account Balance:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="balanceAmount"
+                  [ngModel]="customerEdit?.balanceAmount"
+                  readonly
+                />
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('balanceAmount').invalid &&
+                    customer.get('balanceAmount').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('balanceAmount').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('balanceAmount').hasError('pattern')"
+                  >
+                  balance Only Numbers.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Account Type:</label>
+
+                <div class="form-check form-check-inline mx-2">
+                  <input
+                    class="form-check-input mx-1"
+                    type="radio"
+                    formControlName="accType"
+                    name="accType"
+                    value="Savings"
+                    [ngModel]="customerEdit?.accType"
+                  />
+                  <label class="form-check-label">Savings</label>
+                </div>
+                <div class="form-check form-check-inline mx-2">
+                  <input
+                    class="form-check-input mx-1"
+                    type="radio"
+                    formControlName="accType"
+                    name="accType"
+                    value="Current"
+                    [ngModel]="customerEdit?.accType"
+                  />
+                  <label class="form-check-label">Current</label>
+                </div>
+
+                <div
+                  class="alert-danger"
+                  *ngIf="
+                    customer.get('accType').invalid &&
+                    customer.get('accType').touched
+                  "
+                >
+                  <div
+                    class="alert-danger"
+                    *ngIf="customer.get('accType').hasError('required')"
+                  >
+                    This field is required..
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-lg-6">
+                <label>Account Status:</label>
+
+                <div class="form-check form-check-inline mx-2">
+                  <input
+                    class="form-check-input mx-1"
+                    type="radio"
+                    formControlName="status"
+                    name="status"
+                    value="Active"
+                    [ngModel]="customerEdit?.status"
+                  />
+                  <label class="form-check-label">Active</label>
+                </div>
+                <div class="form-check form-check-inline mx-2">
+                  <input
+                    class="form-check-input mx-1"
+                    type="radio"
+                    formControlName="status"
+                    name="status"
+                    value="InActive"
+                    [ngModel]="customerEdit?.status"
+                  />
+                  <label class="form-check-label">InActive</label>
+                </div>
+                <div class="form-check form-check-inline mx-2">
+                  <input
+                    class="form-check-input mx-1"
+                    type="radio"
+                    formControlName="status"
+                    name="status"
+                    value="Closed"
+                    [ngModel]="customerEdit?.status"
+                  />
+                  <label class="form-check-label">Closed</label>
+                </div>
+              </div>
+            </div>
+            <div class="float-right m-2">
+              <button
+                type="submit"
+                class="btn btn-success"
+                [disabled]="customer.invalid"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger mx-2"
+                (click)="cancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
